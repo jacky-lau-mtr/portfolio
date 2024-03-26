@@ -2,6 +2,8 @@
 
 ### Education 
 
-### Work Experience 
+### Work Experience
 
-### Projectsm
+### Technical Skills 
+
+### Projects
