@@ -1,1 +1,101 @@
+select * 
+from Portfolio..CovidDeaths$
+--where continent is not null
+order by 3,4
+
+--select * 
+--from Portfolio..CovidVaccinations$
+--order by 3,4
+
+-- Select data that we are going to be using 
+select location, date, total_cases, new_cases, total_deaths, population
+from Portfolio..CovidDeaths$
+order by 1,2
+
+
+-- Look at the total cases & total deaths, which shows the likelihood of dying if you got COVID in your country 
+select location, date, total_cases, total_deaths, (total_deaths / total_cases)*100 as DeathPercentage
+from Portfolio..CovidDeaths$
+where location like 'canada'
+order by 1,2
+
+
+-- Looking at the total_cases vs. population, which shows the population of getting COVID 
+select location, date, total_cases, total_deaths, (total_cases / population)*100 as PercentPopulationInfected
+from Portfolio..CovidDeaths$
+where location like 'canada'
+order by 1,2
+
+
+-- look at the country with the highest infection rate relative to population
+select
+    location,
+    date,
+    MAX(total_cases) AS HighestInfectionCount,
+    MAX(total_deaths) AS MaxTotalDeaths,
+    (MAX(total_cases) / population) * 100 AS PercentagePopulationInfected
+from
+    Portfolio..CovidDeaths$
+GROUP BY location, date, population
+ORDER BY PercentagePopulationInfected desc
+
+-- look at how many people died in each country (as well as death rates) 
+select location,
+	   max(cast(total_deaths as int)) as TotalDeathCount
+from Portfolio..CovidDeaths$
+where continent is not null
+group by location
+order by TotalDeathCount desc
+
+
+-- Breaking things down by location 
+select location, max(cast(total_deaths as int)) as TotalDeathCount
+from Portfolio..CovidDeaths$
+where continent is null
+group by location
+order by TotalDeathCount desc 
+
+-- Looking at the global numbers 
+SELECT 
+    date,
+    SUM(CAST(new_cases AS INT)) AS TotalNewCases,
+    SUM(CAST(new_deaths AS INT)) AS TotalNewDeaths,
+    CASE 
+        WHEN SUM(CAST(new_cases AS INT)) = 0 THEN NULL
+        ELSE SUM(CAST(new_deaths AS INT)) * 100.0 / SUM(CAST(new_cases AS INT))
+    END AS DeathPercentage
+FROM 
+    Portfolio..CovidDeaths$
+WHERE 
+    continent IS NOT NULL
+GROUP BY 
+    date
+ORDER BY 
+    date
+
+
+-- Joining the 2 datasets together
+select * 
+from Portfolio..CovidDeaths$ dea
+join Portfolio..CovidVaccinations$ vac
+	on dea.location = vac.location
+	and dea.date = vac.date
+
+
+-- look at the total population vs vaccinations
+SELECT 
+    dea.continent, 
+    dea.location, 
+    dea.date, 
+    dea.population, 
+    vac.new_vaccinations,
+    SUM(CONVERT(BIGINT, vac.new_vaccinations)) OVER (PARTITION BY dea.location) AS TotalNewVaccinations
+FROM 
+    Portfolio..CovidDeaths$ dea
+JOIN 
+    Portfolio..CovidVaccinations$ vac ON dea.location = vac.location AND dea.date = vac.date
+WHERE 
+    dea.continent IS NOT NULL
+ORDER BY 2,3
+
 
