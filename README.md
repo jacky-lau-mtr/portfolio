@@ -1,22 +1,7 @@
-# Data Science 
+Thanks for visiting my Github Data Project Portfolio. Please click on the my-projects file to view my projects.
 
-### Summary
-- Master of Economics candidate with Canada local working and volunteering experience
-- Strong foundation in data analysis, programming, and machine learning methods
-- Project experiences that involved data cleaning, visualization, and predictive analysis using Python, Excel, Tableau and Stata
-- Committed to applying economic insights to bring a strategic perspective to data driven initiatives as a Data Analyst
+I divided my projects into 3 different types: Python, SQL & Tableau.
 
-### Education 
-**Master of Arts in Economics (Concentration: Population Dynamics)**                                        Montreal, Quebec
-*McGill University*                                                                                     Sept 2023 - Aug 2024
-- Major GPA: 3.4/4.0
-- Relevant Courses: QuanT. Mthds (Python), Appl. Time-Series (Python), Appl. Comp. Econ (MATLAB)
-
-**Bachelor of Social Science in Economics (Concentration: Financial Economics & Business Economics)**         Hong Kong 
-*The Chinese University of Hong Kong*
-
-### Work Experience
-
-### Technical Skills 
-
-### Projects
+* For Python projects: I have already uploaded all the Jupyter Notebooks for my projects with all code executed, accompanied with explanations. You can directly view all the results of my codes.
+* For Tableau projects: Please proceed to my Tableau public website for my Tableau interactive dashboards. The link is provided in the file.
+* For SQL projects: Please proceed to the file for my SQL codes. For your reference, I'm using Microsoft SQL Server for my projects.
