@@ -2,7 +2,7 @@
 
 Welcome to my Tableau Portfolio! 
 
-For my latest project, I've created an interactive dashboard to visualize the COVID-19 data from around the world.
+For my latest project, I've created an interactive dashboard to visualize the COVID-19 data in Canada.
 
 Please go to my Tableau Public website for my Tableau Portfolio Project:
 
