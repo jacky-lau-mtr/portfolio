@@ -1,6 +1,6 @@
 Thanks for visiting my Github Data Project Portfolio!
 
-My name is Jacky and I'm currently an MA in Econ student at McGill University. I am now seeking for data analyst, data scientist, and economic analyst graduate positions. 
+My name is Jacky and I'm an MA in Econ graduate at McGill University. I am now seeking for data analyst, data scientist, and economic analyst graduate positions. 
 
 My favorite topics for investigation are **demography (esp. immigration), labor market, health, and ESG**. I'm planning to work on more projects relating to ESG for my personal interest.
 
